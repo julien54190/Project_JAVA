@@ -21,8 +21,28 @@ public class GuessGame {
 
     @Override
     public String toString() {
-        return "GuessGame [lifePoints=" + lifePoints + ", guessWord=" + guessWord + "]";
+        return "mot à deviner : " + guessWord +
+                " | points de vie : " + lifePoints;
     }
 
+    public void guessLetter(char letter) {
+        if (secretWord.contains(letter) && !guessWord.contains(letter)) {
+            for (int index = 0; index < secretWord.size(); index++) {
+                if (secretWord.get(index) == letter) {
+                    guessWord.set(index, letter);
+                }
+            }
+        } else if (!secretWord.contains(letter) && guessWord.contains(letter)) {
+    } else {
+        lifePoints--;
+    }
+}
 
+    public boolean isLost() {
+        return lifePoints <= 0;
+    }
+
+    public boolean isWon() {
+        return !guessWord.contains('_');
+    }
 }
