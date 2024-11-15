@@ -17,6 +17,12 @@ public class App {
             final var inputUser = scanner.nextInt();
 
             game.processInput(player, inputUser);
+            if (game.checkwin()) {
+                System.out.println(game);
+                System.out.println("Le joueur " + player + " a gagné la partie ! :");
+                System.out.println(game);
+                break;
+            }
 
             player = nextPlayer(player);
                                     
