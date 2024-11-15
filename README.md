@@ -5,3 +5,6 @@
 - Mise en place du projet
 - codage du projet
 - Amélioration du projet
+
+# 02. Le Morpion
+- Introduction du projet
