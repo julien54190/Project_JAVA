@@ -8,3 +8,4 @@
 
 # 02. Le Morpion
 - Introduction du projet
+- traitement des Joueurs
