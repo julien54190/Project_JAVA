@@ -1,5 +1,6 @@
 package com.dyma.game;
 
+import com.dyma.exceptions.TocTacToeInvalidInputException;
 import static com.dyma.game.StringConstants.LINE_SEPARATOR;
 import static com.dyma.game.StringConstants.SPACE;
 
@@ -11,13 +12,13 @@ public class TicTacToe {
         {'.', '.', '.'}
     };
 
-    public void processInput(Player player, int inputUser) {
+    public void processInput(Player player, int inputUser) throws TocTacToeInvalidInputException {
         var row = (inputUser - 1) / 3;
         var column = (inputUser - 1) % 3;
         if (grid[row][column] == '.') {
             grid[row][column] = player.equals(Player.FIRST)? 'X' : 'O';
         } else {
-            System.out.println("Cellule déjà occupée!");
+            throw new TocTacToeInvalidInputException ("Cellule déjà occupée!");
         }
     }
 
@@ -36,6 +37,16 @@ public class TicTacToe {
         }
         return false;
     }
+    public boolean checkDrow() {
+        for (char[] row: grid){
+            for (char cell: row){
+                if (cell == '.') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     @Override
     public String toString() {
@@ -49,6 +60,8 @@ public class TicTacToe {
         }
         return builder.toString();
     }
+
+
 
 
 

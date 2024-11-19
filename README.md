@@ -10,3 +10,4 @@
 - Introduction du projet
 - traitement des Joueurs
 - Ajout conditions victoire
+- Match nul et Amélioration
